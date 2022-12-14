@@ -93,7 +93,7 @@ app.post('/api/persons', (req, res) => {
   res.json(person)
 })
 // #middleware after our routes, that is used for catching 
-// requests made to non-existent routes.
+// requests made to non-existent routes
 const unknownEndpoint = (req, res) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
