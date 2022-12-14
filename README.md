@@ -14,3 +14,11 @@ Implement the functionality for displaying the information for a single phoneboo
 If an entry for the given id is not found, the server has to respond with the appropriate status code.
 
 <img width="378" alt="Screen Shot 2022-12-13 at 9 55 46 PM" src="https://user-images.githubusercontent.com/39681478/207494033-f293bd86-d011-4cb5-bbc6-5fcec91e7997.png">
+
+3.4: Phonebook backend step4
+-
+Implement functionality that makes it possible to delete a single phonebook entry by making an HTTP DELETE request to the unique URL of that phonebook entry.
+
+Test that your functionality works with either Postman or the Visual Studio Code REST client.
+
+<img width="355" alt="Screen Shot 2022-12-13 at 10 03 31 PM" src="https://user-images.githubusercontent.com/39681478/207494911-c61a225a-5621-4876-acd4-11deba536356.png">
