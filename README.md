@@ -11,4 +11,6 @@ Implement a page at the address http://localhost:3001/info that looks roughly li
 3.3: Phonebook backend step3
 -
 Implement the functionality for displaying the information for a single phonebook entry. The url for getting the data for a person with the id 5 should be http://localhost:3001/api/persons/5
+If an entry for the given id is not found, the server has to respond with the appropriate status code.
 
+<img width="378" alt="Screen Shot 2022-12-13 at 9 55 46 PM" src="https://user-images.githubusercontent.com/39681478/207494033-f293bd86-d011-4cb5-bbc6-5fcec91e7997.png">
