@@ -7,3 +7,8 @@ Implement a Node application that returns a hardcoded list of phonebook entries 
 -
 Implement a page at the address http://localhost:3001/info that looks roughly like this:
 <img width="574" alt="Screen Shot 2022-12-13 at 9 01 47 PM" src="https://user-images.githubusercontent.com/39681478/207486829-90e88d34-da74-411d-951a-34c6843dc88b.png">
+
+3.3: Phonebook backend step3
+-
+Implement the functionality for displaying the information for a single phonebook entry. The url for getting the data for a person with the id 5 should be http://localhost:3001/api/persons/5
+
