@@ -1,0 +1,24 @@
+GET http://localhost:3001/api/persons/
+
+###
+GET http://localhost:3001/api/info
+
+###
+GET http://localhost:3001/api/persons/3
+
+###
+DELETE http://localhost:3001/api/persons/4
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+# { 
+#     "name": "Mary Poppendieck", 
+#     "number": "39-23-6423122"
+# }
+
+{
+  "name": "Miles Rance",
+  "number": "14-36-2309455"
+}
