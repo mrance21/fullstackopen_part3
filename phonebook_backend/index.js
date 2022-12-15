@@ -1,8 +1,8 @@
 const { json, response } = require('express')
-const express = require('express')
+// express server object
+const express = require('express') 
 const app = express()
-
-app.use(express.json())
+const morgan = require('morgan')
 
 persons = [
     { 
@@ -27,15 +27,24 @@ persons = [
     }
 ]
 
-const requestLogger = (req, res, next) => {
-  console.log('Method', request.method)
-  console.log('Path', request.path)
-  console.log('Body', request.body)
-  console.log('---'),
-  next()
-}
+// const requestLogger = (req, res, next) => {
+//   console.log('Method', req.method)
+//   console.log('Path', req.path)
+//   console.log('Body', req.body)
+//   console.log('---'),
+//   next()
+// }
 
-app.use(requestLogger)
+app.use(express.json())
+
+// app.use(requestLogger)
+
+// prints out the details of every request made
+morgan.token('body', req => {
+  return JSON.stringify(req.body)
+})
+
+app.use(morgan(':method :url :status :response-time[3] :body'))
 
 const generateID = () => {
   const maxID = persons.length > 0
@@ -44,11 +53,11 @@ const generateID = () => {
   return maxID + 1
 }
 
-app.get('/api/persons', (request, response) => {
+app.get('/api/persons', (req, response) => {
     response.json(persons)
 })
 
-app.get('/api/info', (request, response) => {
+app.get('/api/info', (req, response) => {
     const date = new Date()
     response.send(`<p>Phone book has info for ${persons.length} people</p> <p>${date}</p>`)
 })
@@ -82,7 +91,6 @@ app.post('/api/persons', (req, res) => {
     })
   }
 
-  console.log(req.body)
   const person = {
     id: generateID(),
     name: body.name,
@@ -92,10 +100,11 @@ app.post('/api/persons', (req, res) => {
   persons = persons.concat(person)
   res.json(person)
 })
+
 // #middleware after our routes, that is used for catching 
-// requests made to non-existent routes
+// requests made to non-existent routes.
 const unknownEndpoint = (req, res) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+  res.status(404).send({ error: 'unknown endpoint' })
 }
 
 app.use(unknownEndpoint)
