@@ -3,6 +3,7 @@ const { json, response } = require('express')
 const express = require('express') 
 const app = express()
 const morgan = require('morgan')
+const cors = require('cors')
 
 persons = [
     { 
@@ -27,17 +28,19 @@ persons = [
     }
 ]
 
-// const requestLogger = (req, res, next) => {
-//   console.log('Method', req.method)
-//   console.log('Path', req.path)
-//   console.log('Body', req.body)
-//   console.log('---'),
-//   next()
-// }
+const requestLogger = (req, res, next) => {
+  console.log('Method', req.method)
+  console.log('Path', req.path)
+  console.log('Body', req.body)
+  console.log('---'),
+  next()
+}
 
 app.use(express.json())
 
-// app.use(requestLogger)
+app.use(requestLogger)
+
+app.use(cors())
 
 // prints out the details of every request made
 morgan.token('body', req => {
