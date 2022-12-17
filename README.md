@@ -66,4 +66,19 @@ Make the backend work with the phonebook frontend from the exercises of the prev
 <img width="183" alt="Screen Shot 2022-12-16 at 9 52 05 PM" src="https://user-images.githubusercontent.com/39681478/208220401-d652d1bd-af9a-45cb-9c1d-8721b59fef35.png">
 <img width="120" alt="Screen Shot 2022-12-16 at 9 52 14 PM" src="https://user-images.githubusercontent.com/39681478/208220428-5bba22ef-e68e-410e-b419-e5d08f5a50d9.png">
 
+3.10 phonebook backend step10
+-
+Deploy the backend to the internet, for example to Fly.io. URL: https://milesphonebookapp.fly.dev/
+
+3.11 phonebook full stack
+-
+Also make sure that the frontend still works locally. In the Phonebook's ./service/persona files:
+When deploying to Fly.io, I need to use a relative path
+
+<img width="275" alt="Screen Shot 2022-12-16 at 9 55 16 PM" src="https://user-images.githubusercontent.com/39681478/208220517-a0ec1b4e-0387-4e78-9e38-4e41fa7bba1c.png">
+
+Or Just use a proxy in your package.json file, under your react project
+
+<img width="334" alt="Screen Shot 2022-12-16 at 9 55 38 PM" src="https://user-images.githubusercontent.com/39681478/208220533-0273751f-7bca-44d7-9d14-6613f4307f60.png">
+
 
