@@ -45,11 +45,11 @@ app.use(cors())
 app.use(express.static('build'))
 
 // prints out the details of every request made
-morgan.token('body', req => {
-  return JSON.stringify(req.body)
-})
+// morgan.token('body', req => {
+//   return JSON.stringify(req.body)
+// })
 
-app.use(morgan(':method :url :status :response-time[3] :body'))
+// app.use(morgan(':method :url :status :response-time[3] :body'))
 
 const generateID = () => {
   const maxID = persons.length > 0
