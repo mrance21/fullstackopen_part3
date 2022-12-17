@@ -57,3 +57,13 @@ Morgan is installed just like all other libraries with the npm install command. 
 Configure morgan so that it also shows the data sent in HTTP POST requests:
 
 <img width="410" alt="Screen Shot 2022-12-14 at 10 52 49 PM" src="https://user-images.githubusercontent.com/39681478/207768563-4b89d91e-299d-4441-98ea-eda8ce957595.png">
+
+3.9 phonebook backend step9
+-
+Make the backend work with the phonebook frontend from the exercises of the previous part. 
+
+<img width="204" alt="Screen Shot 2022-12-16 at 9 51 39 PM" src="https://user-images.githubusercontent.com/39681478/208220367-d26e222c-3cad-45c4-aaaf-d81c04d60eaf.png">
+<img width="183" alt="Screen Shot 2022-12-16 at 9 52 05 PM" src="https://user-images.githubusercontent.com/39681478/208220401-d652d1bd-af9a-45cb-9c1d-8721b59fef35.png">
+<img width="120" alt="Screen Shot 2022-12-16 at 9 52 14 PM" src="https://user-images.githubusercontent.com/39681478/208220428-5bba22ef-e68e-410e-b419-e5d08f5a50d9.png">
+
+
