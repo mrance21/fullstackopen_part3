@@ -42,6 +42,8 @@ app.use(requestLogger)
 
 app.use(cors())
 
+app.use(express.static('build'))
+
 // prints out the details of every request made
 morgan.token('body', req => {
   return JSON.stringify(req.body)
