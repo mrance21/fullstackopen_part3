@@ -81,4 +81,12 @@ Or Just use a proxy in your package.json file, under your react project
 
 <img width="334" alt="Screen Shot 2022-12-16 at 9 55 38 PM" src="https://user-images.githubusercontent.com/39681478/208220533-0273751f-7bca-44d7-9d14-6613f4307f60.png">
 
+3.12: Command-line database
+-
+Create a cloud-based MongoDB database for the phonebook application with MongoDB Atlas.
 
+Create a mongo.js file in the project directory, that can be used for adding entries to the phonebook, and for listing all of the existing entries in the phonebook.
+
+<img width="426" alt="Screen Shot 2022-12-19 at 12 12 05 AM" src="https://user-images.githubusercontent.com/39681478/208352416-c04408bc-827b-4712-9421-bcbb5e50b23e.png">
+
+<img width="717" alt="Screen Shot 2022-12-19 at 12 12 33 AM" src="https://user-images.githubusercontent.com/39681478/208352462-1de642f7-c256-4767-a0e5-0074f55b55a4.png">
