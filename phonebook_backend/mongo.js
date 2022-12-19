@@ -28,7 +28,7 @@ if (process.argv.length === 3) {
         result.forEach(person => {
             console.log(person)
         })
-        mongoose.connection.close()
+        return mongoose.connection.close()
     })
     .catch((err) => console.log(err))
 }
@@ -41,7 +41,7 @@ if (process.argv.length > 3) {
     person.save().then(() => {
         console.log(`added ${name} number ${number} to phonebook`)
         console.log('note saved!')
-        mongoose.connection.close()
+        return mongoose.connection.close()
         })
         .catch((err) => console.log(err))
-    }
+    } 
