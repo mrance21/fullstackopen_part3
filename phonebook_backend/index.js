@@ -51,18 +51,18 @@ app.get('/api/persons', (req, response) => {
 
 app.get('/api/info', (req, response) => {
     const date = new Date()
-    response.send(`<p>Phone book has info for ${persons.length} people</p> <p>${date}</p>`)
+    response.send(`<p>Phone book has info for ${Person.find().estimatedDocumentCount()} people</p> <p>${date}</p>`)
 })
 
-app.get('/api/persons/:id', (req, res) => {
-  const id = Number(req.params.id)
-  const person = persons.find(person => person.id === id)
-
-  if (person) {
-    res.json(person)
-  } else {
-    res.status(404).end()
-  }
+app.get('/api/persons/:id', (req, res, next) => {
+  Person.findById(req.params.id).then(person => {
+    if (person) {
+        res.json(person)
+    } else {
+        res.status(404).end()
+    }
+})
+.catch(error =>  next(error))
 })
 
 app.delete('/api/persons/:id', (request, response, next) => {
@@ -80,7 +80,7 @@ app.put('/api/persons/:id', (request, response, next) => {
       number: body.number 
   }
 
-  Person.findById(request.params.id, person, { new: true })
+  Person.findByIdAndUpdate(request.params.id, person, { new: true })
       .then(updatedPerson => {
           response.json(updatedPerson)
       })
@@ -96,11 +96,11 @@ app.post('/api/persons', (req, res) => {
     })
   } 
 
-  if (persons.find(person => person.name === body.name)) {
-    return res.status(400).json({
-      error: "name must be unique"
-    })
-  }
+  // if (persons.find(person => person.name === body.name)) {
+  //   return res.status(400).json({
+  //     error: "name must be unique"
+  //   })
+  // }
 
   const person = new Person({
     name: body.name,

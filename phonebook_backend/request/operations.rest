@@ -7,6 +7,15 @@ GET http://localhost:3001/api/info
 GET http://localhost:3001/api/persons/3
 
 ###
+PUT http://localhost:3001/api/persons/639fe4c731aefb8cdbe8629c
+Content-Type: application/json
+
+{
+  "name": "miles",
+  "number": "225-123-1234"
+}
+
+###
 DELETE http://localhost:3001/api/persons/63a11949bdda063f983aaa04
 
 ###

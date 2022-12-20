@@ -1,17 +1,8 @@
 const mongoose = require('mongoose');
 const url = process.env.MONGODB_URI
-// const password = process.argv[2]
-// const name = process.argv[3]
-// const number = process.argv[4]
-
 console.log('connecting to', url)
 
 mongoose.set('strictQuery', true);
-
-// if (process.argv.length < 3) {
-//     console.log('Please provide the password as an argument: node mongo.js <password>')
-//     process.exit(1)
-//   }
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => {
@@ -22,8 +13,16 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   })
 
 const personSchema = new mongoose.Schema({
-  name: String,
-  number: String,
+  name: {
+    type:String,
+    minlength: 3,
+    required: true
+  },
+  number: {
+    type:String,
+    minlength: 8,
+    required: true
+  }
 })
 
 personSchema.set('toJSON', {
@@ -33,6 +32,18 @@ personSchema.set('toJSON', {
         delete returnedObject.__v
     }
 })
+
+module.exports = mongoose.model('Person', personSchema)
+
+
+// const password = process.argv[2]
+// const name = process.argv[3]
+// const number = process.argv[4]
+
+// if (process.argv.length < 3) {
+//     console.log('Please provide the password as an argument: node mongo.js <password>')
+//     process.exit(1)
+//   }
 
 // if (process.argv.length === 3) {
 //     Person.find({}).then(result => {
@@ -56,5 +67,3 @@ personSchema.set('toJSON', {
 //         })
 //         .catch((err) => console.log(err))
 //     } 
-
-module.exports = mongoose.model('Person', personSchema)
