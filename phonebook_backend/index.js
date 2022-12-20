@@ -1,8 +1,7 @@
-const { json, response } = require('express')
-// express server object
+require('dotenv').config()
+const Person = require('./models/person')
 const express = require('express') 
 const app = express()
-const morgan = require('morgan')
 const cors = require('cors')
 
 persons = [
@@ -44,22 +43,10 @@ app.use(cors())
 
 app.use(express.static('build'))
 
-// prints out the details of every request made
-// morgan.token('body', req => {
-//   return JSON.stringify(req.body)
-// })
-
-// app.use(morgan(':method :url :status :response-time[3] :body'))
-
-const generateID = () => {
-  const maxID = persons.length > 0
-  ? Math.max(...persons.map(person => person.id))
-  : 0
-  return maxID + 1
-}
-
 app.get('/api/persons', (req, response) => {
+  Person.find({}).then(persons => {
     response.json(persons)
+  })
 })
 
 app.get('/api/info', (req, response) => {
@@ -86,24 +73,26 @@ app.delete('/api/persons/:id', (req, res) => {
 
 app.post('/api/persons', (req, res) => {
   const body = req.body
+
   if ((!body.name) || (!body.number)) {
     return res.status(400).json({
       error: "name or number is missing"
     })
-  } else if (persons.find(person => person.name === body.name)) {
-    return res.status(400).json({
-      error: "name must be unique"
-    })
-  }
+  } 
+  // if (persons.find(person => person.name === body.name)) {
+  //   return res.status(400).json({
+  //     error: "name must be unique"
+  //   })
+  // }
 
-  const person = {
-    id: generateID(),
+  const person = new Person({
     name: body.name,
     number: body.number
-  }
+  })
 
-  persons = persons.concat(person)
-  res.json(person)
+  person.save().then(savedPerson => {
+    res.json(person)
+  })
 })
 
 // #middleware after our routes, that is used for catching 
@@ -114,7 +103,7 @@ const unknownEndpoint = (req, res) => {
 
 app.use(unknownEndpoint)
 
-PORT = 3001
+PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`)
 })
