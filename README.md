@@ -90,3 +90,45 @@ Create a mongo.js file in the project directory, that can be used for adding ent
 <img width="426" alt="Screen Shot 2022-12-19 at 12 12 05 AM" src="https://user-images.githubusercontent.com/39681478/208352416-c04408bc-827b-4712-9421-bcbb5e50b23e.png">
 
 <img width="717" alt="Screen Shot 2022-12-19 at 12 12 33 AM" src="https://user-images.githubusercontent.com/39681478/208352462-1de642f7-c256-4767-a0e5-0074f55b55a4.png">
+
+3.13: Phonebook database, step1
+-
+Change the fetching of all phonebook entries so that the data is fetched from the database.
+Verify that the frontend works after the changes have been made.
+
+<img width="301" alt="Screen Shot 2022-12-20 at 6 36 29 PM" src="https://user-images.githubusercontent.com/39681478/208786461-f7596ba9-83f7-4d41-a868-ed3315929457.png">
+<img width="468" alt="Screen Shot 2022-12-20 at 6 37 38 PM" src="https://user-images.githubusercontent.com/39681478/208786600-dec45731-6941-4f7a-bb68-b42047762327.png">
+
+3.14: Phonebook database, step2
+-
+Change the backend so that new numbers are saved to the database. Verify that your frontend still works after the changes.
+At this point, you can choose to simply allow users to create all phonebook entries. At this stage, the phonebook can have multiple entries for a person with the same name.
+
+<img width="381" alt="Screen Shot 2022-12-20 at 6 41 17 PM" src="https://user-images.githubusercontent.com/39681478/208786984-25f19096-197b-4054-ba69-f4a1ebdce596.png">
+
+3.15: Phonebook database, step3
+-
+Change the backend so that deleting phonebook entries is reflected in the database.
+Verify that the frontend still works after making the changes.
+
+<img width="383" alt="Screen Shot 2022-12-20 at 6 42 33 PM" src="https://user-images.githubusercontent.com/39681478/208787123-9476f36c-e89b-4af9-bda7-4d8a92903738.png">
+
+3.16: Phonebook database, step4
+-
+Move the error handling of the application to a new error handler middleware.
+
+<img width="442" alt="Screen Shot 2022-12-20 at 6 47 57 PM" src="https://user-images.githubusercontent.com/39681478/208787663-887d3df5-a348-4459-8ffa-5f02c9706f3b.png">
+
+3.17*: Phonebook database, step5
+-
+If the user tries to create a new phonebook entry for a person whose name is already in the phonebook, the frontend will try to update the phone number of the existing entry by making an HTTP PUT request to the entry's unique URL.
+Modify the backend to support this request.
+Verify that the frontend works after making your changes.
+
+<img width="428" alt="Screen Shot 2022-12-20 at 6 49 06 PM" src="https://user-images.githubusercontent.com/39681478/208787786-d82a034b-7cf0-46b7-8864-9ac0409524ed.png">
+
+3.18*: Phonebook database step6
+-
+Also update the handling of the api/persons/:id and info routes to use the database, and verify that they work directly with the browser, Postman, or VS Code REST client.
+
+<img width="321" alt="Screen Shot 2022-12-20 at 6 50 45 PM" src="https://user-images.githubusercontent.com/39681478/208788008-72b5a85d-9ae3-4e99-b7b4-c12a6e6f4bd3.png">
