@@ -1,31 +1,8 @@
 require('dotenv').config()
 const Person = require('./models/person')
-const express = require('express') 
+const express = require('express')
 const app = express()
 const cors = require('cors')
-
-persons = [
-    { 
-      "id": 1,
-      "name": "Arto Hellas", 
-      "number": "040-123456"
-    },
-    { 
-      "id": 2,
-      "name": "Ada Lovelace", 
-      "number": "39-44-5323523"
-    },
-    { 
-      "id": 3,
-      "name": "Dan Abramov", 
-      "number": "12-43-234345"
-    },
-    { 
-      "id": 4,
-      "name": "Mary Poppendieck", 
-      "number": "39-23-6423122"
-    }
-]
 
 const requestLogger = (req, res, next) => {
   console.log('Method', req.method)
@@ -50,25 +27,25 @@ app.get('/api/persons', (req, response) => {
 })
 
 app.get('/api/info', (req, response) => {
-    const date = new Date()
-    response.send(`<p>Phone book has info for ${Person.find().estimatedDocumentCount()} people</p> <p>${date}</p>`)
+  const date = new Date()
+  response.send(`<p>Phone book has info for ${Person.find().estimatedDocumentCount()} people</p> <p>${date}</p>`)
 })
 
 app.get('/api/persons/:id', (req, res, next) => {
   Person.findById(req.params.id).then(person => {
     if (person) {
-        res.json(person)
+      res.json(person)
     } else {
-        res.status(404).end()
+      res.status(404).end()
     }
-})
-.catch(error =>  next(error))
+  })
+    .catch(error =>  next(error))
 })
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndRemove(request.params.id)
-    .then(result => {
-        response.status(204).end()
+    .then(() => {
+      response.status(204).end()
     })
     .catch(error => next(error))
 })
@@ -77,14 +54,14 @@ app.put('/api/persons/:id', (request, response, next) => {
   const body = request.body
 
   const person = {
-      number: body.number 
+    number: body.number
   }
 
   Person.findByIdAndUpdate(request.params.id, person, { new: true })
-      .then(updatedPerson => {
-          response.json(updatedPerson)
-      })
-      .catch(error => next(error))
+    .then(updatedPerson => {
+      response.json(updatedPerson)
+    })
+    .catch(error => next(error))
 })
 
 app.post('/api/persons', (req, res) => {
@@ -92,9 +69,9 @@ app.post('/api/persons', (req, res) => {
 
   if ((!body.name) || (!body.number)) {
     return res.status(400).json({
-      error: "name or number is missing"
+      error: 'name or number is missing'
     })
-  } 
+  }
 
   // if (persons.find(person => person.name === body.name)) {
   //   return res.status(400).json({
@@ -108,12 +85,13 @@ app.post('/api/persons', (req, res) => {
   })
 
   person.save().then(savedPerson => {
-    res.json(person)
+    res.json(savedPerson)
   })
-  .catch(error => next(error))
+    // eslint-disable-next-line no-undef
+    .catch(error => next(error))
 })
 
-// #middleware after our routes, that is used for catching 
+// #middleware after our routes, that is used for catching
 // requests made to non-existent routes.
 const unknownEndpoint = (req, res) => {
   res.status(404).send({ error: 'unknown endpoint' })
@@ -135,8 +113,9 @@ const errorHandler = (error, request, response, next) => {
 
 app.use(errorHandler)
 
-PORT = process.env.PORT
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT}`)
+  console.log(`Server running on PORT ${PORT}`)
 })
 
