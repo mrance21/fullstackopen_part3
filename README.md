@@ -144,9 +144,17 @@ Expand the validation so that the name stored in the database has to be at least
 -
 Expand the validation so that the name stored in the database has to be at least three characters long, and the phone number must have at least 8 digits.
 
-
+<img width="300" alt="Screen Shot 2022-12-20 at 10 36 21 PM" src="https://user-images.githubusercontent.com/39681478/208815522-671e3482-00eb-46be-b9e4-554b70e22230.png">
 
 3.21 Deploying the database backend to production
 -
 ENV VARIABLE
+
 <img width="762" alt="Screen Shot 2022-12-20 at 9 44 19 PM" src="https://user-images.githubusercontent.com/39681478/208808367-fc159682-8a22-4324-8b07-f3b68da25702.png">
+
+3.22: Lint configuration
+-
+<img width="329" alt="Screen Shot 2022-12-20 at 10 37 28 PM" src="https://user-images.githubusercontent.com/39681478/208815907-12e0c551-b102-4088-a92a-f7f1f8e0cb4c.png">
+<img width="295" alt="Screen Shot 2022-12-20 at 10 37 43 PM" src="https://user-images.githubusercontent.com/39681478/208815935-b132ddb0-054c-4ecc-87fb-b19786e3d233.png">
+<img width="261" alt="Screen Shot 2022-12-20 at 10 38 09 PM" src="https://user-images.githubusercontent.com/39681478/208815978-bc4f1598-164c-4a63-bbb5-bafc071c2574.png">
+
