@@ -132,3 +132,21 @@ Verify that the frontend works after making your changes.
 Also update the handling of the api/persons/:id and info routes to use the database, and verify that they work directly with the browser, Postman, or VS Code REST client.
 
 <img width="321" alt="Screen Shot 2022-12-20 at 6 50 45 PM" src="https://user-images.githubusercontent.com/39681478/208788008-72b5a85d-9ae3-4e99-b7b4-c12a6e6f4bd3.png">
+
+3.19: Phonebook database, step7
+-
+Expand the validation so that the name stored in the database has to be at least three characters long.
+
+<img width="398" alt="Screen Shot 2022-12-20 at 9 38 51 PM" src="https://user-images.githubusercontent.com/39681478/208807584-ee5fed19-463c-4ac8-9873-728fd8524627.png">
+<img width="320" alt="Screen Shot 2022-12-20 at 9 39 05 PM" src="https://user-images.githubusercontent.com/39681478/208807614-98fffc1a-8b04-499c-bd97-9ee9e25ec6b8.png">
+
+3.20*: Phonebook database, step8
+-
+Expand the validation so that the name stored in the database has to be at least three characters long, and the phone number must have at least 8 digits.
+
+
+
+3.21 Deploying the database backend to production
+-
+ENV VARIABLE
+<img width="762" alt="Screen Shot 2022-12-20 at 9 44 19 PM" src="https://user-images.githubusercontent.com/39681478/208808367-fc159682-8a22-4324-8b07-f3b68da25702.png">
